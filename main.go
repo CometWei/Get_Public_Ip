@@ -4,13 +4,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/tomasen/realip"
 )
 
 func main() {
 	http.HandleFunc("/", getip)
-	log.Fatal(http.ListenAndServe(":80", nil))
+	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), nil))
 }
 
 func getip(w http.ResponseWriter, r *http.Request) {
