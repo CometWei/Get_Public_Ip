@@ -35,8 +35,9 @@ func getip(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Fprintln(w, " ", record.Country.Names["en"])
-	fmt.Fprintln(w, " ", record.City.Names["zh-TW"])
+	fmt.Fprint(w, record.Country.Names["en"])
 	fmt.Fprintln(w, " ", record.Subdivisions[0].Names["en"])
-	//	fmt.Fprintln(w, " ", record.Location.Latitude, record.Location.Longitude)
+	//fmt.Fprint(w, record.Country.Names["zh-CN"])
+	//fmt.Fprintln(w, " ",record.City.Names["zh-CN"])
+	//fmt.Fprintln(w, " ", record.Location.Latitude, record.Location.Longitude)
 }
