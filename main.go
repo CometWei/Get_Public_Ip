@@ -13,6 +13,7 @@ func main() {
 	port := os.Getenv("PORT")
 	http.HandleFunc("/", getip)
 	log.Fatal(http.ListenAndServe(port, nil))
+	router.Run(":" + port)
 }
 
 func getip(w http.ResponseWriter, r *http.Request) {
