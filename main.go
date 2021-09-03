@@ -10,8 +10,9 @@ import (
 )
 
 func main() {
+	port := os.Getenv("PORT")
 	http.HandleFunc("/", getip)
-	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), nil))
+	log.Fatal(http.ListenAndServe(port, nil))
 }
 
 func getip(w http.ResponseWriter, r *http.Request) {
