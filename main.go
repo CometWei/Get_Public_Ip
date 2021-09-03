@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	port := os.Getenv("PORT")
+	port := (":" + os.Getenv("PORT"))
 	http.HandleFunc("/", getip)
 	log.Fatal(http.ListenAndServe(port, nil))
 }
