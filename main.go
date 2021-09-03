@@ -10,7 +10,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", getip)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":80", nil))
 }
 
 func getip(w http.ResponseWriter, r *http.Request) {
