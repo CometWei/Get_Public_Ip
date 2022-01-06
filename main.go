@@ -75,6 +75,6 @@ func teapot(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("                              /\n"))
 	w.Write([]byte("                             /\n"))
 	w.Write([]byte("                            /\n"))
-	w.Write([]byte("            <font size=\"7\">We're a Teapot!!</font>  "))
+	w.Write([]byte("            <font size=\"7\">You're a Teapot!!</font>  "))
 	w.Write([]byte("</pre>"))
 }
