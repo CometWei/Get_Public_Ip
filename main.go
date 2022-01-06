@@ -14,6 +14,7 @@ import (
 func main() {
 	port := (":" + os.Getenv("PORT"))
 	http.HandleFunc("/", getip)
+	http.HandleFunc("/teapot", teapot)
 	log.Fatal(http.ListenAndServe(port, nil))
 }
 
@@ -48,4 +49,32 @@ func getip(w http.ResponseWriter, r *http.Request) {
 	//fmt.Fprint(w, record.Country.Names["zh-CN"])
 	//fmt.Fprintln(w, " ",record.City.Names["zh-CN"])
 	//fmt.Fprintln(w, " ", record.Location.Latitude, record.Location.Longitude)
+}
+
+func teapot(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	r.ParseForm()
+	w.WriteHeader(http.StatusTeapot)
+	w.Write([]byte("<pre>"))
+	w.Write([]byte("                                              /\n"))
+	w.Write([]byte("                                             /\n"))
+	w.Write([]byte("                             xxX###xx       /\n"))
+	w.Write([]byte("                              ::XXX        /\n"))
+	w.Write([]byte("                       xxXX::::::###XXXXXx/#####\n"))
+	w.Write([]byte("                  :::XXXXX::::::XXXXXXXXX/    ####\n"))
+	w.Write([]byte("       xXXX//::::::://///////:::::::::::/#####    #         ##########\n"))
+	w.Write([]byte("    XXXXXX//:::::://///xXXXXXXXXXXXXXXX/#    #######      ###   ###\n"))
+	w.Write([]byte("   XXXX        :://///XXXXXXXXX######X/#######      #   ###    #\n"))
+	w.Write([]byte("   XXXX        ::////XXXXXXXXX#######/ #     #      ####   #  #\n"))
+	w.Write([]byte("    XXXX/:     ::////XXXXXXXXXX#####/  #     #########      ##\n"))
+	w.Write([]byte("     \"\"XX//::::::////XXXXXXXXXXXXXX/###########     #       #\n"))
+	w.Write([]byte("         \"::::::::////XXXXXXXXXXXX/    #     #     #      ##\n"))
+	w.Write([]byte("               ::::////XXXXXXXXXX/##################   ###\n"))
+	w.Write([]byte("                   ::::://XXXXXX/#    #     #   #######\n"))
+	w.Write([]byte("                       ::::::::/################\n"))
+	w.Write([]byte("                              /\n"))
+	w.Write([]byte("                             /\n"))
+	w.Write([]byte("                            /\n"))
+	w.Write([]byte("            <font size=\"7\">We're a Teapot!!</font>  "))
+	w.Write([]byte("</pre>"))
 }
